@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html> 
 <head> 
 <title>Contador</title>
@@ -9,34 +9,92 @@
     }
 body {
 min-height: 100vh;
-background-color: rgb(0, 0, 0);
-color: brown;
+background-color: black;
+color: black;
 display: grid;
 place-items: center;
 
 
 }
-    
-div{
-    background: rgba(255, 255, 255, .2);
+
+.corpo {
+    background: white;
 padding: 40px;
 border-radius: 20px;
 text-align: center;
+margin: 0;
+
 }
 
 p{
     font-size: 100px;
 }
 
-</style>
+.botoes{
+     display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza o conteúdo horizontalmente */
+  gap: 10px; /* espaçamento entre as linhas */
+  margin-top: 0;
+}
+.linha-topo {
+  display: flex;
+  gap: 15px; /* espaçamento entre os botões */
+  justify-content: center; /* centraliza os botões horizontalmente */
+}
+.linha-baixo {
+  display: flex;
+  gap: 15px; /* espaçamento entre os botões */
+  justify-content: center; /* centraliza os botões horizontalmente */
+}
+.linha-baixo button{
+    width: 80px;
+    
+}
+
+
+button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+border: white solid;
+cursor: pointer;
+}
+
+.btn-mais10 {
+  background-color: black;
+  color: white;
+  padding: 2px 2px;
+  border-radius: 10px;
+}
+.btn-menos10 {
+  background-color: black; 
+  color: white;
+    padding: 2px 2px;
+    border-radius: 10px;
+}
+
+
+
+  </style>
 
 </head>
 <body>
- <div>
-<h1>Contador</h1>   
-<p>0</p>
-<button onclick="aumentar()">mais</button>
- <button onclick="diminuir()">menos</button>
+ <div class="corpo">
+    <h1>Contador</h1>   
+    <p>0</p>
+    <div class="botoes">
+      <div class="linha-topo">
+        <button onclick="diminuir()">menos ➖</button>
+        <button onclick="aumentar()">mais ➕</button>
+      </div>
+      <div class="linha-baixo">
+                    <button class="btn-menos10" onclick="diminuir10()"> -10</button>
+          <button class= "btn-reset" onclick="resetar()">resetar</button>
+               <button class="btn-mais10" onclick="aumentar10()"> +10</button>
+      </div>
+    </div>
 </div>
 <script>
 
@@ -51,6 +109,18 @@ function diminuir() {
 numero = numero -1
 mostrarNaTela()
 }
+function resetar() {
+numero = 0
+mostrarNaTela()
+}
+function aumentar10() {
+numero = numero + 10
+mostrarNaTela()
+}
+function diminuir10() {
+numero = numero - 10 
+mostrarNaTela()
+}
 // jogar o estado da aplicação na tela
 function mostrarNaTela() {
 const p = document.querySelector("p")
@@ -62,7 +132,6 @@ mostrarNaTela()
 </script>
  
 <body>
-     
 
 
- 
+
