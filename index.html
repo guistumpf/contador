@@ -10,16 +10,16 @@
 body {
 min-height: 100vh;
 background-color: black;
-color: black;
+color: limegreen;
 display: grid;
 place-items: center;
-
+font-family: 'Times New Roman', Times, serif;
 
 }
 
 .corpo {
     background: white;
-padding: 40px;
+padding: 30px;
 border-radius: 20px;
 text-align: center;
 margin: 0;
@@ -33,19 +33,19 @@ p{
 .botoes{
      display: flex;
   flex-direction: column;
-  align-items: center; /* centraliza o conteúdo horizontalmente */
-  gap: 10px; /* espaçamento entre as linhas */
+  align-items: center; 
+  gap: 10px; 
   margin-top: 0;
 }
 .linha-topo {
   display: flex;
-  gap: 15px; /* espaçamento entre os botões */
-  justify-content: center; /* centraliza os botões horizontalmente */
+  gap: 15px; 
+  justify-content: center;
 }
 .linha-baixo {
   display: flex;
-  gap: 15px; /* espaçamento entre os botões */
-  justify-content: center; /* centraliza os botões horizontalmente */
+  gap: 15px;
+  justify-content: center; 
 }
 .linha-baixo button{
     width: 80px;
@@ -55,11 +55,12 @@ p{
 
 button {
   background-color: black;
-  color: white;
+  color: rgb(162, 76, 212);
   padding: 10px 15px;
   border-radius: 10px;
 border: white solid;
 cursor: pointer;
+
 }
 
 .btn-mais10 {
@@ -86,13 +87,13 @@ cursor: pointer;
     <p>0</p>
     <div class="botoes">
       <div class="linha-topo">
-        <button onclick="diminuir()">menos ➖</button>
-        <button onclick="aumentar()">mais ➕</button>
+        <button onclick="diminuir()"> ➖</button>
+        <button onclick="aumentar()"> ➕</button>
       </div>
       <div class="linha-baixo">
-                    <button class="btn-menos10" onclick="diminuir10()"> -10</button>
-          <button class= "btn-reset" onclick="resetar()">resetar</button>
-               <button class="btn-mais10" onclick="aumentar10()"> +10</button>
+                    <button class="btn-menos10" onclick="diminuir10()">-10</button>
+          <button class= "btn-reset" onclick="resetar()"></button>
+               <button class="btn-mais10" onclick="aumentar10()">+10</button>
       </div>
     </div>
 </div>
