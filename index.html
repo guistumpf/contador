@@ -9,21 +9,32 @@
     }
 body {
 min-height: 100vh;
-background-color: black;
-color: limegreen;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 display: grid;
 place-items: center;
 font-family: 'Times New Roman', Times, serif;
 
 }
 
+body.tema-escuro {
+    background-color: black;
+    color: white;
+}
+
+
+
+body.tema-escuro .corpo {
+  background-color: #141414;
+  color: white;
+}
+
 .corpo {
-    background: white;
+    background: rgb(219, 214, 214);
 padding: 30px;
 border-radius: 20px;
 text-align: center;
 margin: 0;
-
 }
 
 p{
@@ -64,19 +75,33 @@ cursor: pointer;
 }
 
 .btn-mais10 {
-  background-color: black;
-  color: white;
+  background-color: rgb(0, 0, 0) ;
+  color: rgb(255, 255, 255);
   padding: 2px 2px;
   border-radius: 10px;
+  border: rgb(255, 255, 255) solid;  
 }
 .btn-menos10 {
-  background-color: black; 
-  color: white;
+  background-color: rgb(0, 0, 0) ; 
+  color: rgb(255, 255, 255);
     padding: 2px 2px;
     border-radius: 10px;
+  border: rgb(255, 255, 255) solid;  
 }
-
-
+.btn-tema {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  border: white solid;
+  cursor: pointer;
+  z-index: 100;
+}
 
   </style>
 
@@ -92,10 +117,14 @@ cursor: pointer;
       </div>
       <div class="linha-baixo">
                     <button class="btn-menos10" onclick="diminuir10()">-10</button>
-          <button class= "btn-reset" onclick="resetar()"></button>
+          <button class= "btn-reset" onclick="resetar()">🔄</button>
                <button class="btn-mais10" onclick="aumentar10()">+10</button>
       </div>
     </div>
+    <button onclick="alternarTema()" class="btn-tema">Alterar Tema</button>
+    <div id="tema-status" style="position:fixed;top:20px;left:20px;font-size:16px;color:black;background:white;padding:6px 16px;border-radius:8px;z-index:101;">
+  Tema: Claro
+</div>
 </div>
 <script>
 
@@ -129,6 +158,33 @@ p.innerText = numero
 }
 // iniciar
 mostrarNaTela()
+
+function alternarTema() {
+  const body = document.body;
+  body.classList.toggle('tema-claro');
+  body.classList.toggle('tema-escuro');
+  atualizarStatusTema();
+}
+
+function atualizarStatusTema() {
+  const status = document.getElementById('tema-status');
+  if (document.body.classList.contains('tema-escuro')) {
+    status.textContent = 'Tema: Escuro';
+    status.style.color = 'white';
+    status.style.background = 'black';
+  } else {
+    status.textContent = 'Tema: Claro';
+    status.style.color = 'black';
+    status.style.background = 'white';
+  }
+}
+
+// Chame ao iniciar
+atualizarStatusTema();
+
+
+
+
 
 </script>
  
