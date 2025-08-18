@@ -17,17 +17,7 @@ font-family: 'Times New Roman', Times, serif;
 
 }
 
-body.tema-escuro {
-    background-color: black;
-    color: white;
-}
 
-
-
-body.tema-escuro .corpo {
-  background-color: #141414;
-  color: white;
-}
 
 .corpo {
     background: rgb(219, 214, 214);
@@ -41,27 +31,6 @@ p{
     font-size: 100px;
 }
 
-.botoes{
-     display: flex;
-  flex-direction: column;
-  align-items: center; 
-  gap: 10px; 
-  margin-top: 0;
-}
-.linha-topo {
-  display: flex;
-  gap: 15px; 
-  justify-content: center;
-}
-.linha-baixo {
-  display: flex;
-  gap: 15px;
-  justify-content: center; 
-}
-.linha-baixo button{
-    width: 80px;
-    
-}
 
 
 button {
@@ -74,34 +43,6 @@ cursor: pointer;
 
 }
 
-.btn-mais10 {
-  background-color: rgb(0, 0, 0) ;
-  color: rgb(255, 255, 255);
-  padding: 2px 2px;
-  border-radius: 10px;
-  border: rgb(255, 255, 255) solid;  
-}
-.btn-menos10 {
-  background-color: rgb(0, 0, 0) ; 
-  color: rgb(255, 255, 255);
-    padding: 2px 2px;
-    border-radius: 10px;
-  border: rgb(255, 255, 255) solid;  
-}
-.btn-tema {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 24px;
-  font-size: 18px;
-  border-radius: 10px;
-  background: black;
-  color: white;
-  border: white solid;
-  cursor: pointer;
-  z-index: 100;
-}
 
   </style>
 
@@ -113,19 +54,13 @@ cursor: pointer;
     <div class="botoes">
       <div class="linha-topo">
         <button onclick="diminuir()"> ➖</button>
-        <button onclick="aumentar()"> ➕</button>
+        <button onclick="resetar()"> 🔃</button>
+<button onclick="aumentar()"> ➕</button>
+
       </div>
-      <div class="linha-baixo">
-                    <button class="btn-menos10" onclick="diminuir10()">-10</button>
-          <button class= "btn-reset" onclick="resetar()">🔄</button>
-               <button class="btn-mais10" onclick="aumentar10()">+10</button>
-      </div>
+    
     </div>
-    <button onclick="alternarTema()" class="btn-tema">Alterar Tema</button>
-    <div id="tema-status" style="position:fixed;top:20px;left:20px;font-size:16px;color:black;background:white;padding:6px 16px;border-radius:8px;z-index:101;">
-  Tema: Claro
-</div>
-</div>
+  
 <script>
 
 // estado da minha aplicação
@@ -143,14 +78,6 @@ function resetar() {
 numero = 0
 mostrarNaTela()
 }
-function aumentar10() {
-numero = numero + 10
-mostrarNaTela()
-}
-function diminuir10() {
-numero = numero - 10
-mostrarNaTela()
-}
 // jogar o estado da aplicação na tela
 function mostrarNaTela() {
 const p = document.querySelector("p")
@@ -159,28 +86,7 @@ p.innerText = numero
 // iniciar
 mostrarNaTela()
 
-function alternarTema() {
-  const body = document.body;
-  body.classList.toggle('tema-claro');
-  body.classList.toggle('tema-escuro');
-  atualizarStatusTema();
-}
 
-function atualizarStatusTema() {
-  const status = document.getElementById('tema-status');
-  if (document.body.classList.contains('tema-escuro')) {
-    status.textContent = 'Tema: Escuro';
-    status.style.color = 'white';
-    status.style.background = 'black';
-  } else {
-    status.textContent = 'Tema: Claro';
-    status.style.color = 'black';
-    status.style.background = 'white';
-  }
-}
-
-// Chame ao iniciar
-atualizarStatusTema();
 
 
 
